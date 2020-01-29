@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import * as Font from "expo-font";
 import { AppLoading } from "expo";
 
@@ -27,7 +27,7 @@ export default function App() {
       <AppLoading
         startAsync={fetchFonts}
         onFinish={() => setDataLoaded(true)}
-        onError={(err) => console.log(err)}
+        onError={err => console.log(err)}
       />
     );
   }
@@ -64,10 +64,12 @@ export default function App() {
   }
 
   return (
-    <View style={styles.screen}>
-      <Header title="Guess A Number" />
-      {content}
-    </View>
+    <ScrollView>
+      <View style={styles.screen}>
+        <Header title="Guess A Number" />
+        {content}
+      </View>
+    </ScrollView>
   );
 }
 
