@@ -1,5 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
-import { View, Text, StyleSheet, Alert, ScrollView } from "react-native";
+import {
+  Alert,
+  Dimensions,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import NumberContainer from "../components/NumberContainer";
@@ -7,6 +14,10 @@ import Card from "../components/Card";
 import DefaultStyles from "../constants/default-styles";
 import MainButton from "../components/MainButton";
 import BodyText from "../components/BodyText";
+
+// screen dimensions
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get("window").height;
 
 const generateRandomBetween = (min, max, exclude) => {
   min = Math.ceil(min);
@@ -70,7 +81,7 @@ const GameScreen = props => {
 
   return (
     <View style={styles.screen}>
-      <Text style={DefaultStyles.bodyText}>Opponent's guess</Text>
+      <Text style={styles.bodyText}>Opponent's guess</Text>
       <NumberContainer>{currentGuess}</NumberContainer>
       <Card style={styles.buttonContainer}>
         <MainButton onPress={nextGuessHandler.bind(this, "lower")}>
@@ -82,7 +93,9 @@ const GameScreen = props => {
       </Card>
       <View style={styles.listContainer}>
         <ScrollView contentContainerStyle={styles.list}>
-          {pastGuesses.map((guess, index) => renderListItem(guess, pastGuesses.length - index))}
+          {pastGuesses.map((guess, index) =>
+            renderListItem(guess, pastGuesses.length - index)
+          )}
         </ScrollView>
       </View>
     </View>
@@ -92,24 +105,24 @@ const GameScreen = props => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 10,
+    padding: "5%",
     alignItems: "center"
   },
   buttonContainer: {
     flexDirection: "row",
     justifyContent: "space-around",
-    marginTop: 20,
+    marginTop: "5%",
     width: "70%",
     maxWidth: "80%"
   },
   listContainer: {
     flex: 1,
-    width: "50%"
+    width: "70%"
   },
   list: {
     flexGrow: 1,
-    alignItems: 'center',
-    justifyContent: 'flex-end'
+    alignItems: "center",
+    justifyContent: "flex-end"
   },
   listItem: {
     borderColor: "#ccc",
@@ -120,6 +133,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     width: "80%"
+  },
+  bodyText: {
+    fontSize: screenHeight > 800 ? 24 : 16
   }
 });
 

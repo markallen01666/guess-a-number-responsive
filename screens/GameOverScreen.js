@@ -1,10 +1,21 @@
 import React from "react";
-import { Text, View, StyleSheet, Button, Image } from "react-native";
+import {
+  Button,
+  Dimensions,
+  Image,
+  StyleSheet,
+  Text,
+  View
+} from "react-native";
 
 import TitleText from "../components/TitleText";
 import BodyText from "../components/BodyText";
 import Colors from "../constants/colors";
 import MainButton from "../components/MainButton";
+
+// screen dimensions
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get("window").height;
 
 const GameOverScreen = props => {
   return (
@@ -61,7 +72,7 @@ const styles = StyleSheet.create({
   },
   titleText: {
     textAlign: "center",
-    fontSize: 30
+    fontSize: screenHeight > 800 ? 24 : 16
   },
   resultText: {
     textAlign: "center",

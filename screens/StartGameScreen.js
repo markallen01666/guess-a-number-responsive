@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import {
-  View,
-  Text,
-  StyleSheet,
+  Alert,
   Button,
-  TouchableWithoutFeedback,
+  Dimensions,
   Keyboard,
-  Alert
+  StyleSheet,
+  TouchableWithoutFeedback,
+  View
 } from "react-native";
 
 import Card from "../components/Card";
@@ -18,7 +18,12 @@ import BodyText from "../components/BodyText";
 import TitleText from "../components/TitleText";
 import MainButton from "../components/MainButton";
 
+// screen dimensions
+const screenWidth = Dimensions.get("window").width;
+const screenHeight = Dimensions.get("window").height;
+
 const StartGameScreen = props => {
+  // state
   const [enteredValue, setEnteredValue] = useState("");
   const [confirmed, setConfirmed] = useState(false);
   const [selectedNumber, setSelectedNumber] = useState();
@@ -106,21 +111,20 @@ const StartGameScreen = props => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    padding: 10,
+    padding: "5%",
     alignItems: "center"
   },
   title: {
     color: Colors.primary,
     fontSize: TextStyles.screenTitle,
-    marginVertical: 10
+    marginVertical: "5%"
   },
   buttonContainer: {
     flexDirection: "row",
-    width: "100%",
+    width: screenWidth > 500 ? "70%" : "100%",
     justifyContent: "space-between",
-    paddingHorizontal: 15,
+    paddingHorizontal: "5%",
     borderRadius: 20
-
   },
   buttonStyle: {
     width: "40%"
@@ -137,10 +141,11 @@ const styles = StyleSheet.create({
   },
   input: {
     width: "50%",
-    textAlign: "center"
+    textAlign: "center",
+    fontSize: screenHeight > 800 ? 24 : 16
   },
   summaryContainer: {
-    marginTop: 20,
+    marginTop: "5%",
     alignItems: "center"
   }
 });

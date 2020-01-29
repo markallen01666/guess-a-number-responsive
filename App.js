@@ -45,6 +45,7 @@ export default function App() {
     setGuessRounds(numberOfRounds);
   };
 
+  // default content
   let content = <StartGameScreen onStartGame={startGameHandler} />;
 
   // Screen display choice

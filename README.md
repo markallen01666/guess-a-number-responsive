@@ -4,6 +4,7 @@ React Native game where the computer tries to guess your number in the shortest 
 
 This version adds in responsive behaviour - covered by section 5
 
-** Waiting until I've studied the responsive section of Max Swartzmuller's React Native Udemy course **
-
+- Increased responsiveness by moving to more proportional rather than absolute sizing
+- Added in responsive sizing based on Dimension('window').width and Dimension('window').height
+- Played with different sizing and differing screen emulators
 
