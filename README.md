@@ -8,5 +8,7 @@ This version adds in responsive behaviour - covered by section 5
 - Added in responsive sizing based on Dimension('window').width and Dimension('window').height
 - Played with different sizing and differing screen emulators
 - played with different orientations in app.json
-- encapsulated in <ScrollView>
+- encapsulated in ScrollView
+- protected with SafeAreaView on iOS
+- top margin based on StatusBar.currentHeight
 
